@@ -1,0 +1,2 @@
+#!/usr/bin/with-contenv bashio
+lighttpd -f /etc/lighttpd/lighttpd.conf -D
