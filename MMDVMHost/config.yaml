@@ -1,6 +1,6 @@
 # https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
 name: MMDVMHost
-version: "0.1.25"
+version: "0.1.34"
 slug: mmdvmhost
 description: MMDVMHost + MMDVMHost-Dasboard
 url: "https://github.com/LaneaLucy/haos-addons/tree/main/MMDVMHost"

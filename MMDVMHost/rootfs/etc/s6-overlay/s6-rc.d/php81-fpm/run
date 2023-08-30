@@ -1,0 +1,6 @@
+#!/usr/bin/with-contenv bashio
+
+bashio::log.info "Starting php-fpm81..."
+
+php-fpm81 -F
+

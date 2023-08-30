@@ -90,13 +90,14 @@ RUN chown -R www-data:www-data /var/www/html \
 
 COPY run.sh /
 COPY MMDVM.ini /MMDVMHost/MMDVM.ini
+RUN chown -R mmdvm:mmdvm /MMDVMHost/MMDVM.ini
 COPY lighttpd.conf /etc/lighttpd/lighttpd.conf
-COPY etc/* /etc/
+COPY rootfs /
 RUN chmod a+x /run.sh
 
 
 
 WORKDIR /MMDVMHost
-USER mmdvm
+#USER mmdvm
 
-CMD ["/run.sh"]
+#CMD ["/run.sh"]

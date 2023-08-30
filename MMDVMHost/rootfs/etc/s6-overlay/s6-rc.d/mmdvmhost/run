@@ -1,0 +1,4 @@
+#!/usr/bin/with-contenv bashio
+
+exec s6-setuidgid mmdvm /run.sh
+
