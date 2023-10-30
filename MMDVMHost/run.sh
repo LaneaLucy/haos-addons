@@ -10,7 +10,9 @@ MMDVM_INI=$(bashio::config 'MMDVM_ini')
 
 #echo ${MMDVM_INI} > "${CONFIG}"
 
-bashio::log.debug ${MMDVM_INI}
+#cat "${CONFIG}"
+
+#bashio::log.debug ${MMDVM_INI}
 
 
 

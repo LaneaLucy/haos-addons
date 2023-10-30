@@ -1,4 +1,4 @@
-ARG BUILD_FROM=ghcr.io/hassio-addons/base:14.1.0
+ARG BUILD_FROM #=ghcr.io/hassio-addons/base:stable
 FROM $BUILD_FROM
 
 
@@ -11,13 +11,18 @@ RUN apk add --update \
     git \
     g++ \
     linux-headers \
+    libsamplerate-dev \
     python3
 
 
 
 # get and install MMDVMHost
-RUN git clone https://github.com/g4klx/MMDVMHost.git \
-    && cd /MMDVMHost && make
+RUN git clone https://github.com/g4klx/MMDVMHost.git && cd /MMDVMHost && make
+
+RUN apk add --update \
+    libstdc++ \
+    libsamplerate \
+    libgcc
 
 # get MMDVMHost-Dashboard
 RUN git clone https://github.com/dg9vh/MMDVMHost-Dashboard.git 
@@ -30,7 +35,7 @@ RUN python -c 'import sys;s=open(sys.argv[1]).read().replace("\\\n", "");open(sy
 #    && docker-php-ext-install gettext
 
 # clean
-RUN apk del make git linux-headers python3 \
+RUN apk del make git g++ linux-headers libsamplerate-dev python3 \
     && rm -rf /var/cache/apk/*
 
 
