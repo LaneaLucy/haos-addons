@@ -6,9 +6,11 @@ panel_icon: mdi:music-circle
 description: Mopidy
 url: "https://github.com/LaneaLucy/haos-addons/tree/main/mopidy"
 arch:
+  - armhf
   - armv7
   - aarch64
   - amd64
+  - i386
 init: false
 audio: true
 ports:
