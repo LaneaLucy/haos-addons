@@ -1,6 +1,6 @@
 # https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
 name: Mopidy
-version: "0.1.10"
+version: "0.1.11"
 slug: mopidy
 panel_icon: mdi:music-circle
 description: Mopidy
@@ -50,4 +50,4 @@ schema:
       name: str
       value: str
 
-image: ghcr.io/lanealucy/haos-addons/mopidy-{arch}
+image: ghcr.io/lanealucy/haos-addon-mopidy-{arch}
