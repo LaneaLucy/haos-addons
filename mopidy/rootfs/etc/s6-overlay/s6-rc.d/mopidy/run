@@ -1,0 +1,24 @@
+#!/usr/bin/with-contenv bashio
+
+# ==============================================================================
+# Home Assistant Add-on: Mopidy
+# Runs the Mopidy
+# ==============================================================================
+declare -a options
+
+options+=(-o "local/media_dir=/share/mopidy/media")
+
+bashio::log.info "Starting Mopidy..."
+
+for var in $(bashio::config 'settings|keys'); do
+    section=$(bashio::config "settings[${var}].section")
+    name=$(bashio::config "settings[${var}].name")
+    value=$(bashio::config "settings[${var}].value")
+    bashio::log.info "Setting ${section}/${name}=${value}"
+
+    options+=(-o "${section}/${name}=${value}")
+done
+
+# Run Mopidy
+exec mopidy "${options[@]}"
+

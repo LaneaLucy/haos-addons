@@ -1,0 +1,51 @@
+# https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
+name: Mopidy
+version: "0.1.9"
+slug: mopidy
+panel_icon: mdi:music-circle
+description: Mopidy
+url: "https://github.com/LaneaLucy/haos-addons/tree/main/mopidy"
+arch:
+  - armv7
+  - aarch64
+  - amd64
+init: false
+audio: true
+ports:
+  6680/tcp: 6680
+webui: http://[HOST]:[PORT:6680]/
+map:
+  - config
+  - share:rw
+  - media
+options:
+  system_packages: []
+  python_packages: []
+  settings: 
+    - section: http
+      name: hostname
+      value: "::"
+    - section: youtube
+      name: youtube_dl_package
+      value: yt_dlp
+    - section: spotify
+      name: username
+      value: username
+    - section: spotify
+      name: password
+      value: password
+    - section: spotify
+      name: client_id
+      value: bla
+    - section: spotify
+      name: client_secret
+      value: blup
+schema:
+  system_packages:
+    - str
+  python_packages:
+    - str
+  settings:
+    - section: str
+      name: str
+      value: str
