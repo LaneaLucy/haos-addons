@@ -6,21 +6,20 @@ FROM $BUILD_FROM
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # Setup base
-RUN apt-get update && apt-get install -y --no-install-recommends \
+RUN apt-get update && DEBIAN_FRONTEND='noninteractive'  apt-get install -y  --no-install-recommends \
+        build-essential \
         git \
         python3-dev \
-        python3-gi \
-        python3-gst-1.0 \
         wget curl
 
 RUN wget https://bootstrap.pypa.io/get-pip.py && python3 get-pip.py --break-system-packages 
 
 
 
-RUN python3 -m pip install --break-system-packages mopidy
+RUN python3 -m pip install --break-system-packages streamlink
 
-RUN apt-get update && \
-    DEBIAN_FRONTEND='noninteractive'  apt-get install -y  --no-install-recommends xorg firefox-esr pulseaudio ffmpeg
+RUN apt-get update && DEBIAN_FRONTEND='noninteractive'  apt-get install -y  --no-install-recommends \
+    xorg firefox-esr pulseaudio ffmpeg
 
 # Copy root filesystem
 COPY rootfs /
