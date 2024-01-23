@@ -1,0 +1,5 @@
+#!/command/execlineb -P
+
+with-contenv
+
+foreground { /etc/s6-overlay/scripts/installer }

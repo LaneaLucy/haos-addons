@@ -1,0 +1,30 @@
+# https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
+name: xserver
+version: "0.1.10"
+slug: xserver
+description: X Server
+url: "https://github.com/LaneaLucy/haos-addons/tree/main/xserver"
+arch:
+  - amd64
+init: false
+audio: true
+full_access: true
+#ports:
+#  6680/tcp: 6680
+#webui: http://[HOST]:[PORT:6680]/
+map:
+  - config
+  - share:rw
+  - media
+options:
+  system_packages: []
+  python_packages: []
+  command: "firefox-esr --kiosk jttp://localhost:8123/"
+schema:
+  system_packages:
+    - str
+  python_packages:
+    - str
+  command: str
+
+image: ghcr.io/lanealucy/haos-addon-xserver-{arch}

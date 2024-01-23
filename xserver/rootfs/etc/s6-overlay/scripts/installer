@@ -1,0 +1,30 @@
+#!/usr/bin/with-contenv bashio
+
+# ==============================================================================
+# Home Assistant Add-on: xserver
+# Install user configured/requested packages
+# ==============================================================================
+
+bashio::log.info "Starting Installer..."
+bashio::log.info "System Packages to install: $(bashio::config 'system_packages')"
+bashio::log.info "Python Packages to install: $(bashio::config 'python_packages')"
+
+if [ -n "$(bashio::config 'system_packages')" ]
+then
+      apt update || bashio::exit.nok 'Failed updating APT packages repository indexes'
+
+      for package in $(bashio::config 'system_packages')
+      do
+          bashio::log.info "installing apt package ${package}"
+          apt install -y "$package" || bashio::exit.nok "Failed installing apt package ${package}"
+      done
+fi
+
+if [ -n "$(bashio::config 'python_packages')" ]
+then
+      for package in $(bashio::config 'python_packages')
+      do
+          bashio::log.info "installing python package ${package}"
+          pip install --break-system-packages "$package" || bashio::exit.nok "Failed installing python package ${package}"
+      done
+fi

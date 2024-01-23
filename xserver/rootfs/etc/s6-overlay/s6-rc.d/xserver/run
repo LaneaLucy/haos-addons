@@ -1,0 +1,18 @@
+#!/usr/bin/with-contenv bashio
+
+# ==============================================================================
+# Home Assistant Add-on: xserver
+# Runs the X Server
+# ==============================================================================
+
+bashio::log.info "Starting X Server..."
+
+# Run X Server
+if [[ "$(bashio::config 'command')" == "" ]] ; then
+    /usr/bin/X :0 -nolisten tcp vt1
+else
+    echo "$(bashio::config 'command')" > /usr/bin/xinit-command.sh
+    chmod +x /usr/bin/xinit-command.sh
+    /usr/bin/xinit /usr/bin/xinit-command.sh -- :0
+fi
+
