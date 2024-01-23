@@ -1,6 +1,6 @@
 # https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
 name: xserver
-version: "0.1.10"
+version: "0.1.11"
 slug: xserver
 description: X Server
 url: "https://github.com/LaneaLucy/haos-addons/tree/main/xserver"
