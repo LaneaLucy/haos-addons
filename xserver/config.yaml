@@ -6,6 +6,10 @@ description: X Server
 url: "https://github.com/LaneaLucy/haos-addons/tree/main/xserver"
 arch:
   - amd64
+  - aarch64
+  - armhf
+  - armv7
+  - i386
 init: false
 audio: true
 full_access: true
