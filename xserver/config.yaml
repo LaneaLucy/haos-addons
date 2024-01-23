@@ -23,7 +23,7 @@ map:
 options:
   system_packages: []
   python_packages: []
-  command: "firefox-esr --kiosk jttp://localhost:8123/"
+  command: "firefox-esr --kiosk http://localhost:8123/"
 schema:
   system_packages:
     - str
