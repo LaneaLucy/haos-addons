@@ -8,11 +8,13 @@
 bashio::log.info "Starting X Server..."
 
 # Run X Server
-if [[ "$(bashio::config 'command')" == "" ]] ; then
-    /usr/bin/X :0 -nolisten tcp vt1
+if [[ "$(bashio::config 'xinit_command')" == "" ]] ; then
+    bashio::log.info "X command: /usr/bin/X :0 $(bashio::config 'x_options')"
+    /usr/bin/X :0 $(bashio::config 'x_options')
 else
-    echo "$(bashio::config 'command')" > /usr/bin/xinit-command.sh
+    echo "$(bashio::config 'xinit_command')" > /usr/bin/xinit-command.sh
     chmod +x /usr/bin/xinit-command.sh
-    /usr/bin/xinit /usr/bin/xinit-command.sh -- :0
+    bashio::log.info "xinit command: /usr/bin/xinit /usr/bin/xinit-command.sh -- :0 $(bashio::config 'x_options')"
+    /usr/bin/xinit /usr/bin/xinit-command.sh -- :0 $(bashio::config 'x_options')
 fi
 

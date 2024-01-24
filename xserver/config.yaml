@@ -1,6 +1,6 @@
 # https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
 name: xserver
-version: "0.1.17"
+version: "0.1.18"
 slug: xserver
 description: X Server
 url: "https://github.com/LaneaLucy/haos-addons/tree/main/xserver"
@@ -23,12 +23,14 @@ map:
 options:
   system_packages: []
   python_packages: []
-  command: "firefox-esr --kiosk http://localhost:8123/"
+  xinit_command: "firefox-esr --kiosk http://localhost:8123/"
+  x_options: "-nolisten tcp"
 schema:
   system_packages:
     - str
   python_packages:
     - str
-  command: str
+  xinit_command: str
+  x_options: str
 
 image: ghcr.io/lanealucy/haos-addon-xserver-{arch}
