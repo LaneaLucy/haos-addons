@@ -10,6 +10,8 @@ RUN apt-get update && DEBIAN_FRONTEND='noninteractive'  apt-get install -y  --no
         build-essential \
         git \
         python3-dev \
+        libxml2-dev \
+        libxslt-dev \
         wget curl
 
 RUN wget https://bootstrap.pypa.io/get-pip.py && python3 get-pip.py --break-system-packages 
@@ -23,4 +25,5 @@ RUN apt-get update && DEBIAN_FRONTEND='noninteractive'  apt-get install -y  --no
 
 # Copy root filesystem
 COPY rootfs /
+RUN chmod +x /etc/s6-overlay/scripts/installer
 
