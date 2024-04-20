@@ -1,7 +1,7 @@
 #!/usr/bin/with-contenv bashio
 set -e
 
-CONFIG="/MMDVMHost/MMDVM.ini"
+CONFIG="/config/MMDVM.ini"
 
 bashio::log.info "Creating configuration..."
 

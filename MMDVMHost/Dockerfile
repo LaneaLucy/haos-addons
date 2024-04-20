@@ -94,7 +94,7 @@ RUN chown -R www-data:www-data /var/www/html \
 
 
 COPY run.sh /
-COPY MMDVM.ini /MMDVMHost/MMDVM.ini
+# COPY MMDVM.ini /MMDVMHost/MMDVM.ini
 RUN chown -R mmdvm:mmdvm /MMDVMHost/MMDVM.ini
 COPY lighttpd.conf /etc/lighttpd/lighttpd.conf
 COPY rootfs /
