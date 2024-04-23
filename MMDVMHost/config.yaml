@@ -1,6 +1,6 @@
 # https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
 name: MMDVMHost
-version: "0.1.46"
+version: "0.1.48"
 slug: mmdvmhost
 description: MMDVMHost + MMDVMHost-Dasboard
 url: "https://github.com/LaneaLucy/haos-addons/tree/main/MMDVMHost"
@@ -13,13 +13,13 @@ arch:
 init: false
 uart: true
 map:
-  - config
+  - addon_config:rw
 ports:
   8088/tcp: 8088
 webui: http://[HOST]:[PORT:8088]/
 options:
-  MMDVM_ini: "WIP"
+  MMDVM_ini_path: "/config/MMDVM.ini"
   show_ls: true
 schema:
-  MMDVM_ini: "str"
+  MMDVM_ini_path: "str"
   show_ls: bool

@@ -3,10 +3,17 @@ set -e
 
 CONFIG="/config/MMDVM.ini"
 
-bashio::log.info "Creating configuration..."
+bashio::log.info "Checking configuration..."
 
 # Create config
-MMDVM_INI=$(bashio::config 'MMDVM_ini')
+MMDVM_ini_path=$(bashio::config 'MMDVM_ini_path')
+
+if [ ! -f ${MMDVM_ini_path} ]
+then
+    bashio::log.error "Specified Config file does not exist. Creating default Config. Please edit before next start!"
+    cp /MMDVMHost/MMDVM.ini ${MMDVM_ini_path}
+    exit
+fi
 
 #echo ${MMDVM_INI} > "${CONFIG}"
 
@@ -27,7 +34,7 @@ fi
 
 # Start DHCP server
 bashio::log.info "Starting MMDVMHost..."
-exec /MMDVMHost/MMDVMHost ${CONFIG}
+exec /MMDVMHost/MMDVMHost ${MMDVM_ini_path}
 
 
 #while true; do sleep 2; done
