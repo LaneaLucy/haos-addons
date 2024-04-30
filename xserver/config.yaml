@@ -5,10 +5,10 @@ slug: xserver
 description: X Server
 url: "https://github.com/LaneaLucy/haos-addons/tree/main/xserver"
 arch:
-  - amd64
   - aarch64
-  - armhf
+  - amd64
   - armv7
+  - armhf
   - i386
 init: false
 audio: true
