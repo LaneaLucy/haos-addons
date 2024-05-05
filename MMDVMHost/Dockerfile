@@ -86,7 +86,7 @@ RUN set -eux; \
 # configure MMDVMHost-Dasboard
 RUN cp -R /MMDVMHost-Dashboard/* /var/www/html/
 
-COPY config.php /var/www/html/config/config.php
+COPY config.php /dashboard_default_config.php
 
 RUN chown -R www-data:www-data /var/www/html \
     && chmod -R 1777 /var/www/html

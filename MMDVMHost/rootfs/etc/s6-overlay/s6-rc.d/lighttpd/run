@@ -1,2 +1,21 @@
 #!/usr/bin/with-contenv bashio
+
+
+bashio::log.info "Checking Dashboard configuration..."
+
+# Create config
+dashboard_config_path=$(bashio::config 'dashboard_config_path')
+
+if [ ! -f ${dashboard_config_path} ]
+then
+    bashio::log.warning "Specified Config file does not exist. Creating default Config..."
+    cp /dashboard_default_config.php ${dashboard_config_path}
+fi
+
+cp -f ${dashboard_config_path} /var/www/html/config/config.php
+
+
+
+bashio::log.info "Starting Dashboard Web Server..."
+
 lighttpd -f /etc/lighttpd/lighttpd.conf -D

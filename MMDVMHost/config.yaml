@@ -1,6 +1,6 @@
 # https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
 name: MMDVMHost
-version: "0.1.49"
+version: "0.1.51"
 slug: mmdvmhost
 description: MMDVMHost + MMDVMHost-Dasboard
 url: "https://github.com/LaneaLucy/haos-addons/tree/main/MMDVMHost"
@@ -19,9 +19,11 @@ ports:
 webui: http://[HOST]:[PORT:8088]/
 options:
   MMDVM_ini_path: "/config/MMDVM.ini"
-  show_ls: true
+  dashboard_config_path: "/config/config.php"
+  show_ls: false
 schema:
   MMDVM_ini_path: "str"
+  dashboard_config_path: "str"
   show_ls: bool
 
 image: ghcr.io/lanealucy/haos-addon-mmdvmhost-{arch}

@@ -4,7 +4,7 @@
 
 date_default_timezone_set('UTC');
 define("MMDVMLOGPATH", "/var/log/mmdvm");
-define("MMDVMINIPATH", "/MMDVMHost");
+define("MMDVMINIPATH", "/config");
 define("MMDVMINIFILENAME", "MMDVM.ini");
 define("MMDVMHOSTPATH", "/MMDVMHost");
 define("ENABLEXTDLOOKUP", "on");

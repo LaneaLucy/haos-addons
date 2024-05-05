@@ -10,8 +10,10 @@ MMDVM_ini_path=$(bashio::config 'MMDVM_ini_path')
 
 if [ ! -f ${MMDVM_ini_path} ]
 then
+    ls -alh /dev/tty*
     bashio::log.error "Specified Config file does not exist. Creating default Config. Please edit before next start!"
     cp /MMDVMHost/MMDVM.ini ${MMDVM_ini_path}
+    sed -i -e 's%FilePath=.%FilePath=/var/log/mmdvm%g' ${MMDVM_ini_path}
     exit
 fi
 
