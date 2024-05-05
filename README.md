@@ -22,10 +22,10 @@ _MMDVMHost for Home Assistant._
 
 ### [mopidy add-on](./mopidy)
 
-#![Supports aarch64 Architecture][aarch64-shield]
+<!--![Supports aarch64 Architecture][aarch64-shield]-->
 ![Supports amd64 Architecture][amd64-shield]
 ![Supports armhf Architecture][armhf-shield]
-#![Supports armv7 Architecture][armv7-shield]
+<!--![Supports armv7 Architecture][armv7-shield]-->
 ![Supports i386 Architecture][i386-shield]
 
 _My version of Mopidy for Home Assistant._
@@ -34,8 +34,8 @@ _My version of Mopidy for Home Assistant._
 
 ![Supports aarch64 Architecture][aarch64-shield]
 ![Supports amd64 Architecture][amd64-shield]
-#![Supports armhf Architecture][armhf-shield]
-#![Supports armv7 Architecture][armv7-shield]
+<!--![Supports armhf Architecture][armhf-shield]-->
+<!--![Supports armv7 Architecture][armv7-shield]-->
 ![Supports i386 Architecture][i386-shield]
 
 _A simple X Server for Home Assistant._
