@@ -15,7 +15,7 @@ RUN cd /root \
  && unzip v$LIBRESPOT_VERSION.zip
 
 RUN cd /root/librespot-$LIBRESPOT_VERSION \
- && cargo build --jobs $(grep -c ^processor /proc/cpuinfo) --release --no-default-features --features portaudio-backend \
+ && cargo build --jobs $(grep -c ^processor /proc/cpuinfo) --release --no-default-features \
  && mv target/release/librespot /usr/local/bin \
  && cd / \
  && apk --purge del curl cargo portaudio-dev protobuf-dev \
