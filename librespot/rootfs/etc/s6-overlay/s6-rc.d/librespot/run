@@ -1,0 +1,13 @@
+#!/usr/bin/with-contenv bashio
+
+declare -a CONFIG_PATH
+declare -a LIBRESPOT_OPTS
+
+CONFIG_PATH=/data/options.json
+
+LIBRESPOT_OPTS=$(jq --raw-output ".librespotopts" $CONFIG_PATH)
+
+mkdir -p /share/snapfifo
+
+bashio::log.info  "Start Librespot..."
+exec librespot ${LIBRESPOT_OPTS}
