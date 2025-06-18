@@ -8,7 +8,7 @@ ENV LANG C.UTF-8
 
 #Install librespot
 
-RUN apk -U add build-base curl cargo portaudio-dev protobuf-dev
+RUN apk -U add build-base curl cargo portaudio-dev protobuf-dev cmake
 
 RUN cd /root \
  && curl -LO https://github.com/librespot-org/librespot/archive/refs/tags/v$LIBRESPOT_VERSION.zip \
@@ -18,7 +18,7 @@ RUN cd /root/librespot-$LIBRESPOT_VERSION \
  && cargo build --jobs $(grep -c ^processor /proc/cpuinfo) --release --no-default-features \
  && mv target/release/librespot /usr/local/bin \
  && cd / \
- && apk --purge del curl cargo portaudio-dev protobuf-dev \
+ && apk --purge del curl cargo portaudio-dev protobuf-dev cmake \
  && apk add llvm-libunwind \
  && rm -rf /etc/ssl /var/cache/apk/* /lib/apk/db/* /root/v$LIBRESPOT_VERSION.zip /root/librespot-$LIBRESPOT_VERSION /root/.cargo
 
