@@ -29,7 +29,7 @@ RUN cd /root/librespot-$LIBRESPOT_VERSION \
  && cargo build --jobs $(grep -c ^processor /proc/cpuinfo) --release --no-default-features --features with-avahi \
  && mv target/release/librespot /usr/local/bin \
  && cd / \
- && apk --purge del curl cargo portaudio-dev protobuf-dev cmake clang17-libclang avahi-dev \
+ && apk --purge del curl cargo portaudio-dev protobuf-dev cmake clang17-libclang \
  && apk add llvm-libunwind \
  && rm -rf /etc/ssl /var/cache/apk/* /lib/apk/db/* /root/v$LIBRESPOT_VERSION.zip /root/librespot-$LIBRESPOT_VERSION /root/.cargo
 
