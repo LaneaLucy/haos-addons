@@ -8,14 +8,17 @@ ENV LANG C.UTF-8
 
 #Install librespot
 
-RUN apk -U add build-base curl cargo portaudio-dev protobuf-dev cmake
+RUN apk -U add build-base curl cargo portaudio-dev protobuf-dev cmake avahi-compat-libdns_sd
+
+RUN rustup component add rustfmt \
+ && rustup component add clippy
 
 RUN cd /root \
  && curl -LO https://github.com/librespot-org/librespot/archive/refs/tags/v$LIBRESPOT_VERSION.zip \
  && unzip v$LIBRESPOT_VERSION.zip
 
 RUN cd /root/librespot-$LIBRESPOT_VERSION \
- && cargo build --jobs $(grep -c ^processor /proc/cpuinfo) --release --no-default-features \
+ && cargo build --jobs $(grep -c ^processor /proc/cpuinfo) --release --no-default-features --features with-dns-sd \
  && mv target/release/librespot /usr/local/bin \
  && cd / \
  && apk --purge del curl cargo portaudio-dev protobuf-dev cmake \
