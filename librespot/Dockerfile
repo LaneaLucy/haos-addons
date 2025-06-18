@@ -26,7 +26,7 @@ RUN cargo install --force --locked bindgen-cli
 
 RUN cd /root/librespot-$LIBRESPOT_VERSION \
  && export PATH="$HOME/.cargo/bin:$PATH" \
- && cargo build --jobs $(grep -c ^processor /proc/cpuinfo) --release --no-default-features --features with-dns-sd \
+ && cargo build --jobs $(grep -c ^processor /proc/cpuinfo) --release --no-default-features --features with-avahi \
  && mv target/release/librespot /usr/local/bin \
  && cd / \
  && apk --purge del curl cargo portaudio-dev protobuf-dev cmake clang17-libclang avahi-dev \
@@ -34,6 +34,7 @@ RUN cd /root/librespot-$LIBRESPOT_VERSION \
  && rm -rf /etc/ssl /var/cache/apk/* /lib/apk/db/* /root/v$LIBRESPOT_VERSION.zip /root/librespot-$LIBRESPOT_VERSION /root/.cargo
 
 # Copy data for add-on
+COPY rootfs /
 COPY run.sh /
 RUN chmod a+x /run.sh
 
