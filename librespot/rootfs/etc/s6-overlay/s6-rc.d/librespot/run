@@ -9,10 +9,10 @@ LIBRESPOT_OPTS=$(jq --raw-output ".librespotopts" $CONFIG_PATH)
 
 mkdir -p /share/snapfifo
 
-until /usr/sbin/avahi-daemon -c; do
-  sleep 1s
-done
-sleep 10s
+#until /usr/sbin/avahi-daemon -c; do
+#  sleep 1s
+#done
+#sleep 10s
 
 bashio::log.info  "Start Librespot..."
 exec librespot ${LIBRESPOT_OPTS}

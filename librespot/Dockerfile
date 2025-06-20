@@ -26,7 +26,7 @@ RUN cargo install --force --locked bindgen-cli
 
 RUN cd /root/librespot-$LIBRESPOT_VERSION \
  && export PATH="$HOME/.cargo/bin:$PATH" \
- && cargo build --jobs $(grep -c ^processor /proc/cpuinfo) --release --no-default-features --features with-avahi \
+ && cargo build --jobs $(grep -c ^processor /proc/cpuinfo) --release --no-default-features  \
  && mv target/release/librespot /usr/local/bin \
  && cd / \
  && apk --purge del curl cargo portaudio-dev protobuf-dev cmake clang17-libclang \
