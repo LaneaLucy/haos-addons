@@ -31,7 +31,9 @@ RUN cd /root/librespot-$LIBRESPOT_VERSION \
  && cd / \
  && apk --purge del curl cargo portaudio-dev protobuf-dev cmake clang17-libclang \
  && apk add llvm-libunwind \
- && rm -rf /etc/ssl /var/cache/apk/* /lib/apk/db/* /root/v$LIBRESPOT_VERSION.zip /root/librespot-$LIBRESPOT_VERSION /root/.cargo
+ && rm -rf /var/cache/apk/* /lib/apk/db/* /root/v$LIBRESPOT_VERSION.zip /root/librespot-$LIBRESPOT_VERSION /root/.cargo
+
+RUN update-ca-certificates
 
 # Copy data for add-on
 COPY rootfs /
