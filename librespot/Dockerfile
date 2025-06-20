@@ -8,7 +8,7 @@ ENV LANG C.UTF-8
 
 #Install librespot
 
-RUN apk -U add build-base curl cargo portaudio-dev protobuf-dev cmake clang17-libclang avahi-dev avahi-compat-libdns_sd
+RUN apk -U add build-base curl cargo portaudio-dev protobuf-dev cmake clang17-libclang avahi-dev avahi-compat-libdns_sd ca-certificates
 
 RUN cd /root \
  && curl -LO https://github.com/librespot-org/librespot/archive/refs/tags/v$LIBRESPOT_VERSION.zip \
