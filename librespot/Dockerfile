@@ -1,7 +1,7 @@
 ARG BUILD_FROM
 FROM $BUILD_FROM
 
-ARG LIBRESPOT_VERSION="0.6.0"
+ARG LIBRESPOT_VERSION="0.7.0"
 
 # Add env
 ENV LANG C.UTF-8
@@ -26,7 +26,7 @@ RUN cargo install --force --locked bindgen-cli
 
 RUN cd /root/librespot-$LIBRESPOT_VERSION \
  && export PATH="$HOME/.cargo/bin:$PATH" \
- && cargo build --jobs $(grep -c ^processor /proc/cpuinfo) --release --no-default-features  \
+ && cargo build --jobs $(grep -c ^processor /proc/cpuinfo) --release --no-default-features  --features "rustls-tls-native-roots with-libmdns"  \
  && mv target/release/librespot /usr/local/bin \
  && cd / \
  && apk --purge del curl cargo portaudio-dev protobuf-dev cmake clang17-libclang \

@@ -1,6 +1,6 @@
 {
   "name": "librespot",
-  "version": "v0.6.0.13",
+  "version": "v0.7.0.4",
   "slug": "librespot",
   "description": "spotify",
   "startup": "services",
