@@ -1,6 +1,6 @@
 {
   "name": "librespot",
-  "version": "v0.7.0.4",
+  "version": "v0.7.0.5",
   "slug": "librespot",
   "description": "spotify",
   "startup": "services",
@@ -9,7 +9,7 @@
   "host_dbus": true,
   "init": false,
   "options": {
-    "librespotopts": "-v -n HomeAssistant --backend pipe --device /share/snapfifo/librespot"
+    "librespotopts": "-v -n HomeAssistant --backend pipe --device /share/snapfifo/librespot --cache /tmp/librespot --system-cache /share/librespot --enable-oauth"
   },
   "schema": {
     "librespotopts": "str"
